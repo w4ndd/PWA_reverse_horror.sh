@@ -11,7 +11,7 @@
   "theme_color": "#746d6d",
   "icons": [
     {
-      "src": "./assets/img/Assetsxcassets/512.png",
+      "src": "./assets/img/Assets.xcassets/AppIcon.appiconset/512.png",
       "type": "image/png",
       "sizes": "512x512"
     }
