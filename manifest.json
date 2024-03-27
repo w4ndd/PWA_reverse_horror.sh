@@ -1,0 +1,27 @@
+{
+  "background_color": "#6f6f6f",
+  "description": "reverse_horror.sh um blog de artigos aberto para todos onde podemos utilizar o fórum para upvote de novos artigos debatidos pela comunidade.",
+  "dir": "ltr",
+  "display": "standalone",
+  "name": "reverse-horror-sh.netlify",
+  "orientation": "portrait",
+  "scope": "/",
+  "short_name": "reverse_horror.sh",
+  "start_url": "/index.html",
+  "theme_color": "#746d6d",
+  "icons": [
+    {
+      "src": "./assets/favicon/favicon-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "id": "rhorror.sh",
+  "categories": [
+    "education",
+    "news",
+    "productivity",
+    "security",
+    "social"
+  ]
+}
