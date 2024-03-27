@@ -11,6 +11,12 @@
   "theme_color": "#746d6d",
   "icons": [
     {
+      "src": "./assets/img/Assets.xcassets/AppIcon.appiconset/144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
       "src": "./assets/img/Assets.xcassets/AppIcon.appiconset/192.png",
       "sizes": "192x192",
       "type": "image/png",
@@ -31,5 +37,13 @@
     "security",
     "social"
   ],
-  "lang": "pt"
+  "lang": "pt",
+  "screenshots" : [
+    {
+      "src": "screenshot.jpg",
+      "sizes": "1280x720",
+      "type": "image/jpg",
+      "platform": "wide"
+    }
+  ]
 }
