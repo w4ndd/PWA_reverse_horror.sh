@@ -11,9 +11,16 @@
   "theme_color": "#746d6d",
   "icons": [
     {
+      "src": "./assets/img/Assets.xcassets/AppIcon.appiconset/192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
       "src": "./assets/img/Assets.xcassets/AppIcon.appiconset/512.png",
       "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "512x512",
+      "purpose": "maskable"
     }
   ],
   "id": "rhorror.sh",
@@ -23,5 +30,6 @@
     "productivity",
     "security",
     "social"
-  ]
+  ],
+  "lang": "pt"
 }
