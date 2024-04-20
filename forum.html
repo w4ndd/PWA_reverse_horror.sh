@@ -34,141 +34,8 @@
       
         </div>
       </nav>
-  <section class="bg-dark py-5 py-xl-6 my-4">
-    <div class="container mt-5">
-        <div class="card">
-            
-        <div class="card-header bg-primary text-white">
-            Título do Post
-        </div>
-        <div class="card-body">
-            <p class="card-text">Este é o conteúdo do post. Você pode escrever tudo o que quiser aqui.</p>
-        </div>
-        <div class="card-footer text-muted">
-            Publicado por: Nome do Usuário - Data do Post
-        </div>
-        </div>
-    </div>
-    <div class="container mt-5">
-        <div class="card">
-        <div class="card-header bg-primary text-white">
-            Título do Post
-        </div>
-        <div class="card-body">
-            <p class="card-text">Este é o conteúdo do post. Você pode escrever tudo o que quiser aqui.</p>
-        </div>
-        <div class="card-footer text-muted">
-            Publicado por: Nome do Usuário - Data do Post
-        </div>
-        </div>
-    </div>
-    <div class="container mt-5">
-        <div class="card">
-        <div class="card-header bg-primary text-white">
-            Título do Post
-        </div>
-        <div class="card-body">
-            <p class="card-text">Este é o conteúdo do post. Você pode escrever tudo o que quiser aqui.</p>
-        </div>
-        <div class="card-footer text-muted">
-            Publicado por: Nome do Usuário - Data do Post
-        </div>
-        </div>
-    </div>
-    <div class="container mt-5">
-        <div class="card">
-        <div class="card-header bg-primary text-white">
-            Título do Post
-        </div>
-        <div class="card-body">
-            <p class="card-text">Este é o conteúdo do post. Você pode escrever tudo o que quiser aqui.</p>
-        </div>
-        <div class="card-footer text-muted">
-            Publicado por: Nome do Usuário - Data do Post
-        </div>
-        </div>
-    </div>
-    <div class="container mt-5">
-        <div class="card">
-        <div class="card-header bg-primary text-white">
-            Título do Post
-        </div>
-        <div class="card-body">
-            <p class="card-text">Este é o conteúdo do post. Você pode escrever tudo o que quiser aqui.</p>
-        </div>
-        <div class="card-footer text-muted">
-            Publicado por: Nome do Usuário - Data do Post
-        </div>
-        </div>
-    </div>
-    <div class="container mt-5">
-        <div class="card">
-        <div class="card-header bg-primary text-white">
-            Título do Post
-        </div>
-        <div class="card-body">
-            <p class="card-text">Este é o conteúdo do post. Você pode escrever tudo o que quiser aqui.</p>
-        </div>
-        <div class="card-footer text-muted">
-            Publicado por: Nome do Usuário - Data do Post
-        </div>
-        </div>
-    </div>
-    <div class="container mt-5">
-        <div class="card">
-        <div class="card-header bg-primary text-white">
-            Título do Post
-        </div>
-        <div class="card-body">
-            <p class="card-text">Este é o conteúdo do post. Você pode escrever tudo o que quiser aqui.</p>
-        </div>
-        <div class="card-footer text-muted">
-            Publicado por: Nome do Usuário - Data do Post
-        </div>
-        </div>
-    </div>
-    <div class="container mt-5">
-        <div class="card">
-        <div class="card-header bg-primary text-white">
-            Título do Post
-        </div>
-        <div class="card-body">
-            <p class="card-text">Este é o conteúdo do post. Você pode escrever tudo o que quiser aqui.</p>
-        </div>
-        <div class="card-footer text-muted">
-            Publicado por: Nome do Usuário - Data do Post
-        </div>
-        </div>
-    </div>
-    <div class="container mt-5">
-        <a href="pagina_completa.html" class="card-link">
-        <div class="card">
-        <div class="card-header bg-primary text-white text-decoration-none">
-            Título do Post
-        </div>
-        <div class="card-body">
-            <p class="card-text">Este é o conteúdo do post. Você pode escrever tudo o que quiser aqui.</p>
-        </div>
-        <div class="card-footer text-muted">
-            Publicado por: Nome do Usuário - Data do Post
-        </div>
-        </div>
-        </a>
-    </div>
-    <div class="container mt-5">
-        <div class="card">
-        <div class="card-header bg-primary text-white">
-            Título do Post
-        </div>
-        <div class="card-body">
-            <p class="card-text">Este é o conteúdo do post. Você pode escrever tudo o que quiser aqui.</p>
-        </div>
-        <div class="card-footer text-muted">
-            Publicado por: Nome do Usuário - Data do Post
-        </div>
-        </div>
-    </div>
-
+  <section class="bg-dark py-5 py-xl-6 my-4" id="posts">
+        <!-- aqui vai os posts gerados pelo json no meu script JS -->
 </section>
 
     <nav class="container-fluid text-center fixed-bottom border-top border-black border-2 bg-light">
@@ -193,5 +60,33 @@
       </div>
 
   </nav>
+  <script>
+    
+    fetch('posts.json')
+        .then(response => response.json())
+        .then(data => {
+            const section = document.querySelector('#posts');
+            data.forEach(post => {
+                const container = document.createElement('div');
+                container.className = 'container mt-5';
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.innerHTML = `
+                    <div class="card-header bg-primary text-white">
+                        ${post.titulo}
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">${post.conteudo}</p>
+                    </div>
+                    <div class="card-footer text-muted">
+                        Publicado por: ${post.usuario} - ${post.data}
+                    </div>
+                `;
+                container.appendChild(card);
+                section.appendChild(container);
+            });
+        });
+    </script>
+    
   </body>
 </html>
