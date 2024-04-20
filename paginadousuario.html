@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="manifest" href="/manifest.json" />
+    <!-- Required Meta Tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#746d6d">
+    <!-- Document Title, Description, and Author -->
+    <title>Blog 1 - HCF Bootstrap 5 Component</title>
+    <meta name="description" content="blog reverse horror" />
+    <meta name="author" content="André Barros" />
+    <!-- Favicon and Touch Icons -->
+    <link rel="icon" type="image/png" sizes="512x512" href="\assets\img\Assets.xcassets\AppIcon.appiconset\512.png" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="./assets/css/bootstrap.css" />
+    <link rel="stylesheet" href="./assets/css/blog-1.css" />
+  </head>
+  <body class="bg-dark" style="padding-top: 70px;">
+    <nav class="container-fluid fixed-top border-bottom border-black border-2 bg-dark px-4">
+      <div class="row text-primary my-2 px-2 d-flex align-items-center justify-content-between">
+          
+          <div class="col text-center mt-1">
+              <h1>reverse_horror.sh</h1>
+          </div>
+          
+          <div class="col text-end">
+              <a href="paginadousuario.html">
+                  <i class="bi bi-person-circle" style="font-size: 2rem;"></i>
+              </a>
+          </div>
+    
+      </div>      
+    </nav>
+    
+    <div class="container">
+    <h2 class="h1 mb-3"><a class="link-dark text-decoration-none" href="#!">Perfil do Usuario</a></h2>
+
+    <div class="row mt-5">
+        <div class="col-md-6"> 
+        <video id="video" width="100%" autoplay></video>
+        </div>
+        <div class="col-md-6">
+        <canvas id="canvas" width="100%"></canvas>
+        </div>
+    </div>
+    <button class="btn btn-primary mt-5" onclick="tirarFoto()">Tirar Foto</button>
+    <div id="fotos" class="row mt-5"></div>
+    </div>
+
+
+
+
+
+    
+    <nav class="container-fluid text-center fixed-bottom border-top border-black border-2 bg-light">
+
+      <div class="row justify-content-around py-2 bg-dark">
+
+          <div onclick="location.href='index.html';" class="col-3">
+              <div class="text-primary">
+                  <i class="bi bi-house-fill" style="font-size: 2.0rem;"></i>
+                  <h3>Blog</h3>
+              </div>
+          </div>
+          
+          <div onclick="location.href='/forum.html';"class="col-3">
+              <div class="text-primary">
+                  <i class="bi bi-archive-fill" style="font-size: 1.8rem;"></i>
+                  <h3>Forum</h3>
+              </div>
+          </div>
+          </div>
+            
+      </div>
+
+  </nav>
+
+  <script type="module">
+    if (typeof navigator.serviceWorker !== 'undefined') {
+      navigator.serviceWorker.register('service-worker.js')
+    }
+  </script> 
+  <script>
+    var video = document.getElementById('video');
+    
+    // Obter acesso à câmera!
+    if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+        navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
+            video.srcObject = stream;
+            video.play();
+        });
+    }
+    
+    function tirarFoto() {
+        var canvas = document.getElementById('canvas');
+        var context = canvas.getContext('2d');
+        context.drawImage(video, 0, 0, video.videoWidth, video.videoHeight);
+        // Adicionar a foto à seção de fotos
+        var img = document.createElement("img");
+        img.src = canvas.toDataURL();
+        img.width = 200;
+        document.getElementById('fotos').appendChild(img);
+    }
+
+    </script>
+  </body>
+</html>
