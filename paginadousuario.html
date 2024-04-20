@@ -46,7 +46,6 @@
         </div>
     </div>
     <button class="btn btn-primary mt-5" onclick="tirarFoto()">Tirar Foto</button>
-    <div id="fotos" class="row mt-5"></div>
     </div>
 
 
@@ -97,11 +96,7 @@
         var canvas = document.getElementById('canvas');
         var context = canvas.getContext('2d');
         context.drawImage(video, 0, 0, video.videoWidth, video.videoHeight);
-        // Adicionar a foto à seção de fotos
-        var img = document.createElement("img");
-        img.src = canvas.toDataURL();
-        img.width = 200;
-        document.getElementById('fotos').appendChild(img);
+
     }
 
     </script>
